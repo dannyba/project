@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 3, from LayoutIt!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/navbar-fixed.css" rel="stylesheet">
+	<link href="css/cus.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
+  
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+		<div class="jumbotron">
+				<h1>
+					Analysis of Twitter Messages related to drugs
+				</h1>
+				<p>
+					Data from Twitter API and Drugs.com was analysed using NLP techniques.
+				</p>
+				
+			</div>
+			<h2>
+				Motivation
+			</h2>
+			<p>
+				Tweets (twitter messages) sometimes express opinions about different topics. I propose to build an <font color="red"><b>automatic sentiment (positive or negative) extractor</b></font> from a tweet related to prescription and Over The Counter (OTC) drugs. Using this analyzer:
+<ul>
+<li>See which drugs are more tweeted
+<li>See which drugs have more positive tweets and which less
+<li>Which Tweets have url in their message (and thus trying to sell the drug online)
+<li>Location of users that tweet about drugs 
+</ul>
+			</p>
+			
+			<h2>
+				Sentiment classifiers Analysis
+			</h2>
+			<p>
+				An essential part is to have a comprehensive <font color="red"><b>dataset</b></font> or corpus to learn from, as well as a <font color="red"><b>test dataset</b></font> to ensure that the accuracy of the algorithm meets the expected standards. I used a corpus of already <a href="http://thinknook.com/w\
+p-content/uploads/2012/09/Sentiment-Analysis-Dataset.zip" target="_blank">classified tweets.</a> This database is based on data from the following sources:<br>
+<ul>
+<li>University of Michigan <a href="http://inclass.kaggle.com/c/si650winter11" target="_blank"> sentiment analysis competition on Kaggle.</a>
+<li><a href="http://www.sananalytics.com/lab/twitter-sentiment/" target="_blank">Twitter Sentiment Corpus</a> by Niek Sanders.
+</ul>
+
+The dataset contains <font color="red"><b>1,578,627 classified tweets</b></font>, each row is marked as 1 for positive sentiment and 0 for negative sentiment. I diluted (took 1/10 randomly) the dataset to get a more diverse set of Tweets. I trained a <font color="red"><b>Naive Bayes Classifier model.</b></font>
+<br>
+			</p>
+			
+			<h2>
+				Creating Python script for Twitter search
+			</h2>
+			<p>
+				AUsed <font color="red"><b>Twitter API</b></font> to search for <font color="red"><b>563</b></font> different drugs. <br>
+The search results as <font color="red"><b>JSON</b></font>, and uploaded into a <font color="red"><b>Python Panda DataFrame</b></font> .<br>
+<br>
+			</p>
+			
+			
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			
+				<div class="navbar-header"> 
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">TwitterAnalysis</a>
+				</div>	
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.html">Main</a>
+						</li>
+						<li>
+							<a href="analysis.html">Analysis</a>
+						</li>
+						<li class="active">
+							<a href="info.html">Additional info</a>
+						</li>
+					
+					</ul>
+										
+				</div>
+				
+			</nav>
+		</div>
+	</div>
+</div>
+</body>
+</html>
